@@ -72,7 +72,7 @@
                     }
                     this.removeEventListener('keydown', arguments.callee);
                 });
-                this.pushScene(this.startScene);
+                //this.pushScene(this.startScene);
 
                 this.endScene = new enchant.nineleap.SplashScene();
                 this.endScene.image = this.assets['end.png'];

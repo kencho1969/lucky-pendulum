@@ -90,6 +90,7 @@ var Stage=enchant.Class.create(enchant.Group,{
 			}
 			ui.addChild(icons[n]);
 		}
+		//left and right button
 		var left_hold,right_hold;
 		icons[0].addEventListener("touchstart",function(e){
 			left_hold=true;
@@ -113,6 +114,16 @@ var Stage=enchant.Class.create(enchant.Group,{
 		icons[2].addEventListener("enterframe",function(e){
 			if(right_hold){
 				player.accel(0.15);
+			}
+		});
+		//scroll
+		map.addEventListener("enterframe",function(){
+			const room=125;
+			const pos=player.x+player.width/2+map.x;
+			if(pos<room){
+				map.x=Math.min(map.x+room-pos,0);
+			}else if(pos>game.width-room){
+				map.x=Math.max(map.x+game.width-room-pos,game.width-back.width);
 			}
 		});
 	}
